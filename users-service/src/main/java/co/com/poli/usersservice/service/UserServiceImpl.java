@@ -5,6 +5,7 @@ import co.com.poli.usersservice.commons.Functions;
 import co.com.poli.usersservice.persistance.entity.User;
 import co.com.poli.usersservice.persistance.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
 
+    @Qualifier("co.com.poli.usersservice.clientFeign.BookingClient")
     private final BookingClient bookingClient;
 
     @Override
